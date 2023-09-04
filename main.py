@@ -1,0 +1,37 @@
+import pandas as pd
+import glob
+
+from fpdf import FPDF
+
+filepaths = glob.glob("invoices/*.xlsx")
+# print(filepaths)
+
+for filepath in filepaths:
+    df = pd.read_excel(filepath, sheet_name="Sheet 1")
+    print(df)
+
+
+
+
+
+# # df = pd.read_excel("invoices/10001-2023.1.18.xlsx")
+#
+# print(df)
+#
+# pdf = FPDF(orientation="P", format="A4")
+#
+# pdf.add_page()
+# # Set the header
+# pdf.set_font(family="Times", style="B", size=24) # this line is a must before adding cell type.Without it, 'unifontsubset' error shows up
+# # pdf.set_text_color(100, 100, 100)
+# pdf.cell(w=0, h=12, txt="Topic", align="L", ln=1)
+#
+# pdf.output("output")
+#
+#
+#
+#
+# for item in df.iterrows():
+#     print(item)
+#     for i in range(len(item)):
+#         print(item[1][i])
